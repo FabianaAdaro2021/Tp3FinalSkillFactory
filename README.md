@@ -4,7 +4,7 @@ Dni 24029714
 
 Sistema de alquiler de películas
 API ghibli https://ghibliapi.herokuapp.com/
-
+ORM prisma utilizando base de datos MySql
 
 El proyecto permite
 
