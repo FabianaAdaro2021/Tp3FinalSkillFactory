@@ -1,0 +1,43 @@
+{
+  "name": "skillfactoryfinalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "db:create": "npx sequelize db:create",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo:all",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.5.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.8.0",
+    "path": "^0.12.7",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.25.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "nodemon": "^2.0.20",
+    "prisma": "^4.5.0",
+    "sequelize-cli": "^6.5.2"
+  },
+  "prisma": {
+    "schema": "src/prisma/schema.prisma",
+    "seed": "node src/prisma/seed.js"
+  }
+}

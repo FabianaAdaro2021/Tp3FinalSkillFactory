@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int             @id @default(autoincrement())
+  email     String          @unique
+  dni       String          @unique
+  phone     String
+  password  String
+  isAdmin   Boolean         @default(false)
+  isValidate Boolean        @default(false)
+  favorites FavouriteFilm[]
+  rent      Rent[]
+}
+
+model Movie {
+ 
+  code          String          @id @default(uuid())
+  title         String
+  stock         Int
+  rentals       Int
+  favouritefilm FavouriteFilm[]
+  rent          Rent[]
+}
+
+model Rent {
+  id               Int      @id @default(autoincrement())
+  id_user          Int
+  id_movie         String
+  rent_date        DateTime
+  return_date      DateTime
+  user_return_date DateTime?
+  user             User     @relation(fields: [id_user], references: [id], onDelete: Cascade)
+  movie            Movie    @relation(fields: [id_movie], references: [code], onDelete: Cascade)
+}
+
+model FavouriteFilm {
+  id       Int   @id @default(autoincrement())
+  id_user  Int
+  id_movie String
+  review   String? 
+  movie    Movie @relation(fields: [id_movie], references: [code], onDelete: Cascade)
+  user     User  @relation(fields: [id_user], references: [id], onDelete: Cascade)
+}
