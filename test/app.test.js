@@ -26,7 +26,7 @@ describe("POST /register", () => {
   const userExample = {
     email: "fabiana@gmail.com",
     password: "123456",
-    phone: "555-555-555",
+    phone: "333-333-333",
     dni: "12342110",
   };
 
