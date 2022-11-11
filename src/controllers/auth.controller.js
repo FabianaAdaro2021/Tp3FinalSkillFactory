@@ -13,12 +13,12 @@ const testAccount = () => {
 
 const singUp = async (req, res) => {
   try {
-    const { username, email, password, dni, phone } = req.body;
+    const { email, password, dni, phone } = req.body;
 
     const hashedPassword = await bycrypt.hash(password, 12);
 
     const newUser = {
-      username: username,
+     // username: username,
       email: email,
       password: hashedPassword,
       isAdmin: false,
