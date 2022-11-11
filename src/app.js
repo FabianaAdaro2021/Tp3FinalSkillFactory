@@ -30,11 +30,9 @@ app.listen(port, () => {
     
 });
 
-function helloWorld(req, res) {
-    
-  res.send('Hello World! ')
-}
-app.get("/", helloWorld);    
+ 
+app.use('/', router);
+
 app.use("/api/auth", authRoutes);       
 app.use("/api/movies", movieRoutes);
 app.use("/api/rent", rentRoutes);

@@ -7,7 +7,11 @@ const {
   repasswordMatch,
 } = require("../middleware/auth.middleware");
 const { requireToken } = require("../middleware/requiretoken");
-
+function helloWorld(req, res) {
+    
+  res.send('Hello World! ')
+}
+router.get("/", helloWorld);  
 router.post(
   "/signup",
   isEmail,
